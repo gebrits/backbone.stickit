@@ -113,7 +113,7 @@
           _.each(_.flatten([modelAttr]), function(attr) {
             observeModelEvent(model, this, 'change:'+attr, function(model, val, options) {
               var changeId = options && options.stickitChange && options.stickitChange.bindId || null;
-              if (changeId !== bindId || options.alwaysUpdateView)
+              if (changeId !== bindId || options.stickitChange.updateSelf)
                 updateViewBindEl(this, $el, config, getAttr(model, modelAttr, config, this), model);
             });
           }, this);
