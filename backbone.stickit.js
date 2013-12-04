@@ -93,6 +93,9 @@
 
         initializeVisible(this, $el, config, model, modelAttr);
 
+        // Before each binding is setup, call the `preinit` callback.
+        applyViewFn(self, config.preinit, $el, model, config);
+
         if (modelAttr) {
           // Setup one-way, form element to model, bindings.
           _.each(config.events, function(type) {
